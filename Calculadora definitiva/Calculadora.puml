@@ -1,0 +1,35 @@
+@startuml
+
+class Calculadora {
+    + sumar(Número n1, Número n2) : int
+    + restar(Número n1, Número n2) : int
+    + multiplicar(Número n1, Número n2) : int
+    + dividir(Número n1, Número n2) : int
+    + sumar(Complejo n1, Complejo n2) : Complejo
+
+}
+
+abstract class Número {
+    - representación : String
+    - valor : int
+    + transformarDecimalABase() : String
+    + transformarBaseADecimal() : int
+}
+
+class Binario {}
+class Decimal {}
+class Octal {}
+class Hexadecimal {}
+class Romano {}
+class Complejo {}
+
+' Calculadora tiene una dependencia con Número
+Calculadora ...> Número
+Binario --|> Número
+Decimal --|> Número
+Octal --|> Número
+Hexadecimal --|> Número
+Romano --|> Número
+Complejo --|> Número
+
+@enduml
